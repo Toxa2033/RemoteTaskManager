@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#23273f</color>
+    <color name="colorPrimary">#394264</color>
+    <color name="secondary">#FFF</color>
+    <color name="colorStatusBar">#7e23273f</color>
+    <color name="colorControlActivated">#636363</color>
+
+    <color name="main_background">#1f253d</color>
+
+    <color name="tab_indicator">#11a8ab</color>
+    <color name="tab_background">#394264</color>
+    <color name="tab_text">#FFFFFF</color>
+
+    <color name="chat_list_item_name">#000000</color>
+    <color name="chat_list_item_message">#666666</color>
+    <color name="chat_list_item_date">#5c757d</color>
+    <color name="chat_list_button_new_chat">#18999A</color>
+    <color name="chat_list_fab">#eb1459</color>
+    <color name="chat_list_divider">#dcdcdc</color>
+
+    <color name="chat_send_background">#162328</color>
+    <color name="chat_send_divider">#131C21</color>
+    <color name="chat_send_text_hint">#496369</color>
+
+    <color name="chat_message_out_bg">#0C64B0</color>
+    <color name="chat_message_in_bg">#284955</color>
+    <color name="chat_message_out_time">#49B0D8</color>
+    <color name="chat_message_in_time">#C0D1D5</color>
+    <color name="chat_message_date">#86A6B0</color>
+
+    <color name="chat_new_group_bg">#ebebeb</color>
+    <color name="chat_new_text">#7e86a8</color>
+    <color name="chat_new_input_line">#9099b7</color>
+
+    <color name="primary_list_item_photo">#163B83</color>
+    <color name="primary_list_item">#28539F</color>
+    <color name="primary_list_item_name_wait_you">#F8A241</color>
+    <color name="primary_list_item_name">#FFFFFF</color>
+    <color name="primary_list_item_description">#B4C1DB</color>
+    <color name="primary_list_item_date">#9FADD0</color>
+
+    <color name="primary_top_button_stars">#e64c65</color>
+    <color name="primary_top_button_like">#fcb150</color>
+    <color name="primary_top_button_num">#4fc4f6</color>
+    <color name="primary_top_button_background">#50597b</color>
+
+    <color name="primary_bottom_button_background">#50597b</color>
+
+    <color name="choice_enemy_button_background">#3468af</color>
+    <color name="choice_enemy_button_click_bg">#35aadc</color>
+
+    <color name="profile_item_achivment">#50597b</color>
+    <color name="profile_item_bonus">#11a8ab</color>
+    <color name="line_item_bonus">#00ff54</color>
+
+    <color name="title_question_bg">#35aadc</color>
+    <color name="progress_bar_bg">#50597b</color>
+    <color name="progress">#4fc4f6</color>
+
+    <color name="answer_false">#dd3353</color>
+    <color name="answer_true">#32ac6e</color>
+
+    <color name="result_button_enemy">#4fc4f6</color>
+    <color name="result_button_play">#e64c65</color>
+
+    <color name="color_divider">#888ea2</color>
+    <color name="color_not_answered">#d0cfcf</color>
+
+    <color name="graph_bg">#11a8ab</color>
+    <color name="color_plus_rating">#e64c65</color>
+    <color name="divider">#009699</color>
+
+    <color name="auth_input_bg">#3F4569</color>
+    <color name="auth_input_border">#3F4569</color>
+    <color name="auth_input_text">#FFFFFF</color>
+    <color name="auth_input_hint">#7D85A8</color>
+    <color name="auth_login_button_bg">#DE3454</color>
+    <color name="auth_rules_text">#7E86A8</color>
+    <color name="auth_checkbox_selected">#757575</color>
+    <color name="auth_checkbox">#757575</color>
+
+    <color name="facebook">#3b5998</color>
+
+    <color name="current_round">#3f4668</color>
+
+    <color name="bonus_shop_item">#28529f</color>
+    <color name="lable_emty_games">#898b94</color>
+
+    <color name="bg_setting">#ebebeb</color>
+    <color name="lable_settings_color">#9099b7</color>
+
+
+    <color name="grey_line">#c2c2c2</color>
+
+    <color name="share_coins_for_free">#006DCA</color>
+    <color name="share_social_text">#595959</color>
+
+    <color name="color_bg_top">#fcfcfc</color>
+    <color name="color_top50_lable">#6c7498</color>
+    <color name="color_top_rait_user">#666666</color>
+    <color name="color_select_user_in_top50">#19999B</color>
+
+    <color name="drawer_bg">#e1e1e1</color>
+    <color name="drawer_text">#45495b</color>
+    <color name="drawer_text_selected">#1c396f</color>
+
+    <color name="dialog_send_title">#de000000</color>
+
+    <color name="new_game_no_friends_text">#7E86A8</color>
+    <color name="new_game_no_friends_bg">#2B3251</color>
+
+    <color name="accept_buy_color">#28529f</color>
+
+    <color name="about_version">#006dca</color>
+    <color name="star_in_register">#7e86a8</color>
+
+    <color name="bg_rounds">#2b3251</color>
+    <color name="bg_result_game">#181b2e</color>
+
+</resources>

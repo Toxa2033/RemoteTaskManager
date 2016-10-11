@@ -1,0 +1,32 @@
+<resources>
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:textColorHint">@color/chat_list_button_new_chat</item>
+        <item name="colorControlActivated">@color/colorControlActivated</item>
+        <item name="colorControlHighlight">@color/ripple_material_dark</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+
+    <!-- Tabs style. -->
+    <style name="TabsTheme" parent="Base.Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/tab_indicator</item>
+        <item name="tabIndicatorHeight">2.5dp</item>
+        <item name="tabBackground">?colorPrimary</item>
+        <item name="tabTextAppearance">@style/TabsText</item>
+        <item name="tabSelectedTextColor">@color/tab_text</item>
+    </style>
+
+    <!-- Tabs text style. -->
+    <!-- dell: parent="TextAppearance.Design.Tab" -->
+    <style name="TabsText">
+        <item name="android:textSize">@dimen/tab_text</item>
+        <item name="android:textColor">@color/tab_text</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+</resources>

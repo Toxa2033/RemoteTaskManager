@@ -1,0 +1,42 @@
+<resources>
+
+    <!-- android:fontFamily=" " -->
+    <!-- roboto regular -->
+    <string name="sans_serif">sans-serif</string>
+    <!-- roboto light -->
+    <string name="sans_serif_light">sans-serif-light</string>
+    <!-- roboto light -->
+    <string name="sans_serif_regular">sans-serif-regular</string>
+    <!-- roboto condensed -->
+    <string name="sans_serif_condensed">sans-serif-condensed</string>
+    <!-- roboto roboto thin (android 4.2) -->
+    <string name="sans_serif_thin">sans-serif-thin</string>
+    <!-- roboto roboto medium (android 5.0) -->
+    <string name="sans_serif_medium">sans-serif-medium</string>
+
+
+    <string name="app_name">Remote Task Manager</string>
+
+    <string name="base_url">http://192.168.1.101:3000/</string>
+
+
+    <string name="label_login">Войти</string>
+    <string name="label_register">Регистрация</string>
+
+    <string name="login_email_hint">Ваш e-mail/login</string>
+    <string name="auth_email_hint">Ваш e-mail</string>
+    <string name="auth_password_hint">Пароль</string>
+    <string name="auth_name_hint">Ваше login</string>
+    <string name="auth_password_confirm_hint">Повторите пароль</string>
+    <string name="auth_login">Войти</string>
+    <string name="auth_next">Далее</string>
+    <string name="auth_forgot">Забыли пароль?</string>
+
+    <string name="login_email">Введите ваш e-mail или login</string>
+    <string name="hint_login">Введите ваше login</string>
+    <string name="hint_password">Введите пароль</string>
+    <string name="passwords_dosent_match">Пароли не совпадают</string>
+    <string name="hint_email">Введите корректный e-mail</string>
+
+
+</resources>
