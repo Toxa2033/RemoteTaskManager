@@ -2,13 +2,18 @@ package ru.example.remotetaskmanager.helpers;
 
 import android.content.Context;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 import ru.example.remotetaskmanager.R;
+import ru.example.remotetaskmanager.models.PC;
 import ru.example.remotetaskmanager.models.User;
 import ru.example.remotetaskmanager.utills.NetworkStateChecker;
 
@@ -47,6 +52,15 @@ public class ApiHelper {
 
         @POST("authorization/")
         Call<User> login(@Body User user);
+
+        @GET("pc/")
+        Call<List<PC>>getPCs(@Query("user")String userId);
+
+    }
+
+    public void getPCs(String userId,Callback<List<PC>> callback)
+    {
+        if(NetworkStateChecker.isInternetOn(context)) api.getPCs(userId).enqueue(callback);
     }
 
     public void login(User user,Callback<User> callback)

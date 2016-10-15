@@ -31,4 +31,9 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha1'
+    compile ('io.socket:socket.io-client:0.8.1') {
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    }
+    compile 'com.bignerdranch.android:expandablerecyclerview:2.1.1'
 }

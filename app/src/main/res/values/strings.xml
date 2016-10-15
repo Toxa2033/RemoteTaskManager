@@ -19,6 +19,8 @@
 
     <string name="base_url">http://192.168.1.101:3000/</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="label_login">Войти</string>
     <string name="label_register">Регистрация</string>
@@ -38,5 +40,6 @@
     <string name="passwords_dosent_match">Пароли не совпадают</string>
     <string name="hint_email">Введите корректный e-mail</string>
 
-
+    <string name="pc_title">ПК</string>
+    <string name="user_title">Пользователи</string>
 </resources>

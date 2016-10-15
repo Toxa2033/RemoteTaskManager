@@ -21,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".auth.AuthActivity"/>
+        <activity android:name=".auth.AuthActivity" />
+        <activity android:name=".navdrawer.NavDrawerActivity"></activity>
     </application>
 
 </manifest>
