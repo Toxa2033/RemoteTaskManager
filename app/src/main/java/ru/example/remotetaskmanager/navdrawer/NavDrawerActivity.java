@@ -18,20 +18,19 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import ru.example.remotetaskmanager.R;
-import ru.example.remotetaskmanager.helpers.ApiHelper;
 import ru.example.remotetaskmanager.helpers.PreferenceHelper;
-import ru.example.remotetaskmanager.helpers.UserHolder;
+import ru.example.remotetaskmanager.helpers.SelectPcHolder;
+import ru.example.remotetaskmanager.interfaces.ApiListner;
 import ru.example.remotetaskmanager.models.PC;
 import ru.example.remotetaskmanager.models.ParentDrawer;
 import ru.example.remotetaskmanager.models.User;
+import ru.example.remotetaskmanager.utills.APIUtils;
 import ru.example.remotetaskmanager.utills.Message;
 import ru.example.remotetaskmanager.view.LoadingDialog;
 
@@ -59,6 +58,8 @@ public class NavDrawerActivity extends AppCompatActivity {
     private Handler mHandler;
     private DrawerAdapter drawerAdapter;
     private LoadingDialog loadingDialog;
+    private TextView tvExit;
+    private TextView tvUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,25 +71,22 @@ public class NavDrawerActivity extends AppCompatActivity {
 
     void getPC(){
         LoadingDialog.show(loadingDialog);
-        ApiHelper.getInstance(this).getPCs(UserHolder.getInstance(this).getUser().get_id(), new Callback<List<PC>>() {
+        APIUtils.getInstance(this).getPC(new ApiListner() {
             @Override
-            public void onResponse(Call<List<PC>> call, Response<List<PC>> response) {
-                if(!isFinishing()) {
-                    if (response.isSuccessful()) {
-                        setupNavDrawer(response.body(),null);
-                    } else {
-                        Message.showToast(response.message(), NavDrawerActivity.this);
+            public void onLoad(Object obj) {
+                if(obj instanceof List<?>){
+                    setupNavDrawer((List<PC>)obj,null);
+                    if(PreferenceHelper.getIdSelectPc(NavDrawerActivity.this).isEmpty()){
+                        SelectPcHolder.getInstance(NavDrawerActivity.this).setPc(((List<PC>)obj).get(0));
                     }
-                    LoadingDialog.dismiss(loadingDialog);
                 }
+                LoadingDialog.dismiss(loadingDialog);
             }
 
             @Override
-            public void onFailure(Call<List<PC>> call, Throwable t) {
-                if(!isFinishing()){
-                    Message.showToast(t.getLocalizedMessage(),NavDrawerActivity.this);
-                    LoadingDialog.dismiss(loadingDialog);
-                }
+            public void onError(String cause) {
+                Message.showToast(cause, NavDrawerActivity.this);
+                LoadingDialog.dismiss(loadingDialog);
             }
         });
     }
@@ -170,7 +168,9 @@ public class NavDrawerActivity extends AppCompatActivity {
         }
 
         RecyclerView drawerList = (RecyclerView)navigationView.findViewById(R.id.drawer_recycler);
-
+        tvExit=(TextView)navigationView.findViewById(R.id.tvExit);
+        tvUser=(TextView)navigationView.findViewById(R.id.tvUser);
+        tvUser.setText(PreferenceHelper.getProfile(this).getEmail());
         drawerList.setLayoutManager(new LinearLayoutManager(this));
         drawerAdapter = new DrawerAdapter(this, listParent);
         drawerList.setAdapter(drawerAdapter);

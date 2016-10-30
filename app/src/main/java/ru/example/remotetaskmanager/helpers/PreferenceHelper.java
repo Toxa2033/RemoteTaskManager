@@ -19,6 +19,8 @@ public class PreferenceHelper {
 
     public static final String PREF_USER_PASSWORD="pref_user_password";
 
+    private static final String PREF_SELECTED_PC="pref_select_pc";
+
 
     public static void saveProfile(final Context context, User user) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
@@ -46,5 +48,17 @@ public class PreferenceHelper {
         sp.edit().remove(PREF_USER_EMAIL).apply();
         sp.edit().remove(PREF_USER_LOGIN).apply();
         sp.edit().remove(PREF_USER_PASSWORD).apply();
+    }
+
+    public static void saveIdSelectPc(String pcId, Context context){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+
+        sp.edit().putString(PREF_SELECTED_PC, pcId).apply();
+    }
+
+    public static String getIdSelectPc(Context context){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+
+       return sp.getString(PREF_SELECTED_PC,"");
     }
 }

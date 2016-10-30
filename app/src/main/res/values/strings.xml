@@ -17,7 +17,7 @@
 
     <string name="app_name">Remote Task Manager</string>
 
-    <string name="base_url">http://192.168.1.101:3000/</string>
+    <string name="base_url">http://192.168.1.102:3000/</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -42,4 +42,15 @@
 
     <string name="pc_title">ПК</string>
     <string name="user_title">Пользователи</string>
+
+    <string name="exit">Выход</string>
+    <string name="stop">Остановить</string>
+
+    <string name="process_name">%1$s id: %2$d</string>
+    <string name="process_memory">%1$d байт</string>
+    <string name="process_time">Запущено: %1$s</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

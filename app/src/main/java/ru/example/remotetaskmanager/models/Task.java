@@ -9,6 +9,10 @@ import java.util.Date;
 
 public class Task implements Serializable {
 
+    public static final int TYPE_KILL=0;
+    public static final int TYPE_OPEN=1;
+
+
     private User owner;
     private int type;
     private Request request;
@@ -20,6 +24,7 @@ public class Task implements Serializable {
     private Date dateCreate;
     private String exception;
     private Date dateCompleted;
+
 
 
     public User getOwner() {

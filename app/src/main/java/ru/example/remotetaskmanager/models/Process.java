@@ -32,6 +32,10 @@ public class Process implements Serializable {
         return date;
     }
 
+    public String getStartTimeString() {
+
+        return startTime;
+    }
 
     public String getTotalPocessorTime() {
         return totalPocessorTime;

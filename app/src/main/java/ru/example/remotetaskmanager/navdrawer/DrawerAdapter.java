@@ -1,6 +1,8 @@
 package ru.example.remotetaskmanager.navdrawer;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,8 @@ import com.bignerdranch.expandablerecyclerview.ViewHolder.ParentViewHolder;
 import java.util.List;
 
 import ru.example.remotetaskmanager.R;
+import ru.example.remotetaskmanager.helpers.PreferenceHelper;
+import ru.example.remotetaskmanager.helpers.SelectPcHolder;
 import ru.example.remotetaskmanager.models.PC;
 import ru.example.remotetaskmanager.models.ParentDrawer;
 import ru.example.remotetaskmanager.models.User;
@@ -54,20 +58,51 @@ public class DrawerAdapter extends ExpandableRecyclerAdapter<DrawerAdapter.Paren
     }
 
     @Override
-    public void onBindChildViewHolder(ChildeHolder viewHolder, int position, Object childListItem) {
+    public void onBindChildViewHolder(final ChildeHolder viewHolder, int position, Object childListItem) {
         if(childListItem instanceof User){
             User user=(User)childListItem;
             viewHolder.tvName.setText(user.getLogin());
             viewHolder.ivStatus.setVisibility(View.GONE);
         } else if(childListItem instanceof PC) {
-            PC pc=(PC)childListItem;
+            final PC pc=(PC)childListItem;
             viewHolder.tvName.setText(pc.getPcName());
             if(pc.isOnline()){
                 viewHolder.ivStatus.setImageResource(R.drawable.ic_status_online);
             } else {
                 viewHolder.ivStatus.setImageResource(R.drawable.ic_status_offline);
             }
+            String id= PreferenceHelper.getIdSelectPc(mInflator.getContext());
+            if(id.isEmpty()&&position==1){
+               selectPc(viewHolder,pc);
+            } else {
+                viewHolder.itemView.setBackgroundColor(Color.TRANSPARENT);
+
+                if(id.equals(pc.get_id())){
+                    selectPc(viewHolder,pc);
+                } else {
+                    viewHolder.itemView.setBackgroundColor(Color.TRANSPARENT);
+                }
+            }
+
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    selectPc(viewHolder,pc);
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            notifyDataSetChanged();
+                        }
+                    });
+                }
+            });
+
         }
+    }
+
+  private void selectPc(ChildViewHolder viewHolder, PC pc){
+        viewHolder.itemView.setBackgroundResource(R.drawable.bg_item_nav_drawer);
+        SelectPcHolder.getInstance(mInflator.getContext()).setPc(pc);
     }
 
 
@@ -75,11 +110,10 @@ public class DrawerAdapter extends ExpandableRecyclerAdapter<DrawerAdapter.Paren
 
         TextView tvTitle;
 
-         ParentHolder(View itemView) {
-            super(itemView);
-            tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
+         ParentHolder(final View itemView) {
+             super(itemView);
+             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
          }
-
 
     }
 
@@ -93,6 +127,8 @@ public class DrawerAdapter extends ExpandableRecyclerAdapter<DrawerAdapter.Paren
             tvName = (TextView) itemView.findViewById(R.id.tvName);
             ivStatus=(ImageView)itemView.findViewById(R.id.ivStatus);
         }
+
+
 
     }
 

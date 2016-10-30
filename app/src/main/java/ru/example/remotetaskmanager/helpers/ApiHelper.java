@@ -14,6 +14,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 import ru.example.remotetaskmanager.R;
 import ru.example.remotetaskmanager.models.PC;
+import ru.example.remotetaskmanager.models.Task;
 import ru.example.remotetaskmanager.models.User;
 import ru.example.remotetaskmanager.utills.NetworkStateChecker;
 
@@ -56,20 +57,24 @@ public class ApiHelper {
         @GET("pc/")
         Call<List<PC>>getPCs(@Query("user")String userId);
 
+        @POST("tasks/")
+        Call<Task> addTask(@Body Task task);
+
     }
 
-    public void getPCs(String userId,Callback<List<PC>> callback)
-    {
+    public void addTask(Task task,Callback<Task> callback) {
+        if(NetworkStateChecker.isInternetOn(context)) api.addTask(task).enqueue(callback);
+    }
+
+    public void getPCs(String userId,Callback<List<PC>> callback) {
         if(NetworkStateChecker.isInternetOn(context)) api.getPCs(userId).enqueue(callback);
     }
 
-    public void login(User user,Callback<User> callback)
-    {
+    public void login(User user,Callback<User> callback) {
         if(NetworkStateChecker.isInternetOn(context)) api.login(user).enqueue(callback);
     }
 
-    public void register(User user,Callback<User> callback)
-    {
+    public void register(User user,Callback<User> callback) {
         if(NetworkStateChecker.isInternetOn(context)) api.register(user).enqueue(callback);
     }
 }
