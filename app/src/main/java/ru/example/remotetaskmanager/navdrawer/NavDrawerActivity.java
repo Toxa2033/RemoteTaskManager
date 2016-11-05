@@ -169,12 +169,24 @@ public class NavDrawerActivity extends AppCompatActivity {
 
         RecyclerView drawerList = (RecyclerView)navigationView.findViewById(R.id.drawer_recycler);
         tvExit=(TextView)navigationView.findViewById(R.id.tvExit);
+        tvExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                exit();
+            }
+        });
         tvUser=(TextView)navigationView.findViewById(R.id.tvUser);
         tvUser.setText(PreferenceHelper.getProfile(this).getEmail());
         drawerList.setLayoutManager(new LinearLayoutManager(this));
         drawerAdapter = new DrawerAdapter(this, listParent);
         drawerList.setAdapter(drawerAdapter);
 
+    }
+
+
+    void exit(){
+        PreferenceHelper.clearProfile(this);
+        finish();
     }
 
 

@@ -55,19 +55,19 @@ public class ApiHelper {
         Call<User> login(@Body User user);
 
         @GET("pc/")
-        Call<List<PC>>getPCs(@Query("user")String userId);
+        Call<List<PC>>getPCs(@Query("user")String userId,@Query("token")String token);
 
         @POST("tasks/")
-        Call<Task> addTask(@Body Task task);
+        Call<Task> addTask(@Body Task task,@Query("token")String token);
 
     }
 
     public void addTask(Task task,Callback<Task> callback) {
-        if(NetworkStateChecker.isInternetOn(context)) api.addTask(task).enqueue(callback);
+        if(NetworkStateChecker.isInternetOn(context)) api.addTask(task,PreferenceHelper.getProfile(context).getToken()).enqueue(callback);
     }
 
     public void getPCs(String userId,Callback<List<PC>> callback) {
-        if(NetworkStateChecker.isInternetOn(context)) api.getPCs(userId).enqueue(callback);
+        if(NetworkStateChecker.isInternetOn(context)) api.getPCs(userId,PreferenceHelper.getProfile(context).getToken()).enqueue(callback);
     }
 
     public void login(User user,Callback<User> callback) {

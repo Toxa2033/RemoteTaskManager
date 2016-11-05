@@ -17,7 +17,7 @@
 
     <string name="app_name">Remote Task Manager</string>
 
-    <string name="base_url">http://192.168.1.102:3000/</string>
+    <string name="base_url">http://192.168.1.101:3000/</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

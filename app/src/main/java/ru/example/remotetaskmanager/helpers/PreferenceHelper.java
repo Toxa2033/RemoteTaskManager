@@ -17,6 +17,9 @@ public class PreferenceHelper {
 
     private static final String PREF_USER_ID = "pref_user_id";
 
+    private static final String PREF_USER_TOKEN = "pref_user_token";
+
+
     public static final String PREF_USER_PASSWORD="pref_user_password";
 
     private static final String PREF_SELECTED_PC="pref_select_pc";
@@ -29,6 +32,7 @@ public class PreferenceHelper {
         sp.edit().putString(PREF_USER_EMAIL, user.getEmail()).apply();
         sp.edit().putString(PREF_USER_LOGIN, user.getLogin()).apply();
         sp.edit().putString(PREF_USER_PASSWORD,user.getPassword()).apply();
+        sp.edit().putString(PREF_USER_TOKEN,user.getToken()).apply();
     }
 
 
@@ -39,6 +43,7 @@ public class PreferenceHelper {
         user.setLogin(sp.getString(PREF_USER_LOGIN, ""));
         user.set_id(sp.getString(PREF_USER_ID, ""));
         user.setPassword(sp.getString(PREF_USER_PASSWORD,""));
+        user.setToken(sp.getString(PREF_USER_TOKEN,""));
         return user;
     }
 
@@ -48,6 +53,7 @@ public class PreferenceHelper {
         sp.edit().remove(PREF_USER_EMAIL).apply();
         sp.edit().remove(PREF_USER_LOGIN).apply();
         sp.edit().remove(PREF_USER_PASSWORD).apply();
+        sp.edit().remove(PREF_USER_TOKEN).apply();
     }
 
     public static void saveIdSelectPc(String pcId, Context context){
